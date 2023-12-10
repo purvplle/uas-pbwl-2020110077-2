@@ -22,7 +22,7 @@ class EventController extends Controller
     {
         $request->validate([
             'nama_event' => 'required|string|max:255',
-            'deskripsi' => 'required|text',
+            'deskripsi' => 'required',
         ]);
 
         Event::create([
@@ -47,7 +47,7 @@ class EventController extends Controller
     {
         $request->validate([
             'nama_event' => 'required|string|max:255',
-            'deskripsi' => 'required|text',
+            'deskripsi' => 'required',
         ]);
 
         $event->update([

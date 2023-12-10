@@ -31,7 +31,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'checkRole:admin']],
     Route::get('/event/{event}', [App\Http\Controllers\EventController::class, 'show'])->name('event.show');
     Route::get('/event/{event}/edit', [App\Http\Controllers\EventController::class, 'edit'])->name('event.edit');
     Route::post('/event/{event}', [App\Http\Controllers\EventController::class, 'update'])->name('event.update');
-    Route::delete('/events/{event}', [App\Http\Controllers\EventController::class, 'destroy'])->name('events.destroy');
+    Route::delete('/events/{event}', [App\Http\Controllers\EventController::class, 'destroy'])->name('event.destroy');
 });
 
 Route::group(['prefix' => 'peserta', 'middleware' => ['auth', 'checkRole:peserta']], function () {
