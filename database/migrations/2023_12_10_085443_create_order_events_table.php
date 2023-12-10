@@ -13,7 +13,14 @@ return new class extends Migration
     {
         Schema::create('order_events', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('event_id');
+            $table->unsignedBigInteger('client_id');
+            $table->date('tanggal');
+            $table->string('lokasi');
             $table->timestamps();
+
+            $table->foreign('event_id')->references('id')->on('events');
+            $table->foreign('client_id')->references('id')->on('clients');
         });
     }
 

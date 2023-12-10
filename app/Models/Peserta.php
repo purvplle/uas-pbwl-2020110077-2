@@ -2,10 +2,17 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
 
-class Peserta extends Model
+class Peserta extends Authenticatable
 {
-    use HasFactory;
+    use Notifiable;
+
+    protected $fillable = ['nama', 'email', 'password'];
+    public function registrations()
+    {
+        return $this->hasMany(PendaftaranEvent::class);
+    }
+
 }

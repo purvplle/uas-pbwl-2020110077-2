@@ -13,7 +13,13 @@ return new class extends Migration
     {
         Schema::create('pendaftaran_events', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('event_id');
+            $table->unsignedBigInteger('peserta_id');
+            // tambahkan kolom lain sesuai kebutuhan
             $table->timestamps();
+
+            $table->foreign('event_id')->references('id')->on('events');
+            $table->foreign('peserta_id')->references('id')->on('pesertas');
         });
     }
 
